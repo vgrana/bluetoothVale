@@ -11,6 +11,7 @@
 
 
 void nullHandler(void *);
+
 void initDelayCounter(Button * button);
 void changeState(Button * button, ButtonState state);
 
