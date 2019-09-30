@@ -85,6 +85,7 @@ int main( void )
 
    // Inicializar y configurar la plataforma
    boardConfig();
+   gpioInit(GPIO01, GPIO_OUTPUT);
 
    // Inicializar UART_232 para conectar al modulo bluetooth
    //uartWriteString( UART_PC, "UART_BLUETOOTH para modulo Bluetooth configurada.\r\n" );
@@ -103,7 +104,7 @@ int main( void )
    button_init(&button, TEC1, (void *)&appModel);
    button_onRelease(&button, buttonPressed);
 
-   appModelRender_init(&appModelRender, &appModel, LED1);
+   appModelRender_init(&appModelRender, &appModel, GPIO01);//LED1);
    uartConnector_initBt(&uartConnector, &appModel, bluetoothCommandReceived);
 
    // ---------- REPETIR POR SIEMPRE --------------------------
